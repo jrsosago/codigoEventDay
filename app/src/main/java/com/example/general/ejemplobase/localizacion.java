@@ -32,7 +32,7 @@ public class localizacion extends AppCompatActivity {
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(localizacion.this, CrearEvento.class);
+                Intent i = new Intent(localizacion.this, lugar.class);
                 startActivity(i);
                 finish();
             }

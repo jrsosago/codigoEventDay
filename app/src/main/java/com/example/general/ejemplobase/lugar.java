@@ -41,7 +41,7 @@ public class lugar extends AppCompatActivity {
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(lugar.this, Recuperar.class);
+                Intent i=new Intent(lugar.this, MostrarEvento.class);
                 startActivity(i);
                 finish();
             }
@@ -49,7 +49,7 @@ public class lugar extends AppCompatActivity {
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(lugar.this, Recuperar.class);
+                Intent i=new Intent(lugar.this, MostrarEvento.class);
                 startActivity(i);
                 finish();
             }
@@ -57,7 +57,7 @@ public class lugar extends AppCompatActivity {
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(lugar.this, Recuperar.class);
+                Intent i=new Intent(lugar.this, MostrarEvento.class);
                 startActivity(i);
                 finish();
             }
@@ -65,7 +65,7 @@ public class lugar extends AppCompatActivity {
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(lugar.this, Recuperar.class);
+                Intent i=new Intent(lugar.this, MostrarEvento.class);
                 startActivity(i);
                 finish();
             }
