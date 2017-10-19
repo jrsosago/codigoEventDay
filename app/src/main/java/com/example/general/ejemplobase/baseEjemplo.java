@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class baseEjemplo extends AppCompatActivity {
-    Button boton_login;
+    Button btnlogin;
     TextView registrarse;
     TextView recuperar;
 
@@ -23,8 +23,18 @@ public class baseEjemplo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_ejemplo);
 
-        boton_login = (Button) findViewById(R.id.botonLogin);
+        btnlogin = (Button) findViewById(R.id.botonLogin);
         registrarse = (TextView) findViewById(R.id.textRegistro);
+        recuperar = (TextView) findViewById(R.id.textRecuperar);
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(baseEjemplo.this , localizacion.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,8 +44,6 @@ public class baseEjemplo extends AppCompatActivity {
                 finish();
             }
         });
-
-        recuperar = (TextView) findViewById(R.id.textRecuperar);
 
         recuperar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +56,7 @@ public class baseEjemplo extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myref = database.getReference(FirebaseReference.EVENTDAY_REFERENCES);
-        boton_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
     }
