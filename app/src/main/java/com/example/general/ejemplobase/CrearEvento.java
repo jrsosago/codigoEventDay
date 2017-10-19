@@ -31,37 +31,9 @@ import java.util.Locale;
 
 public class CrearEvento extends AppCompatActivity {
 
-    Calendar myCalendar=Calendar.getInstance();
-    DatePickerDialog.OnDateSetListener date;
-    TimePickerDialog.OnTimeSetListener hour;
-    private ProgressDialog progressDialog;
-
-    private String info="";
-    private String sNameEvento;
-    private String sCategoriaEvento;
-    private String sPrecioEvento;
-    private String sDateEvento;
-    private String sHoraEvento;
-    private String sDescripcionEvento;
-    private String sDireccionEvento;
-
-    private EditText txtNombre;
-    private EditText txtCategoria;
-    private EditText txtPrecio;
-    private EditText txtDia;
-    private EditText txtHora;
-    private EditText txtDescripcion;
-    private EditText txtDireccion;
-
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
 
     Button crearEvento;
     Button cancelarCreacionEvento;
-
-    public CrearEvento(){
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +55,7 @@ public class CrearEvento extends AppCompatActivity {
         cancelarCreacionEvento.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(CrearEvento.this, Registro.class);
+                Intent i=new Intent(CrearEvento.this, Recuperar.class);
                 startActivity(i);
                 finish();
             }
