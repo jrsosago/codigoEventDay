@@ -13,8 +13,6 @@ public class Recuperar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //hola
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar);
 
@@ -24,7 +22,7 @@ public class Recuperar extends AppCompatActivity {
         enviarCorreo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Recuperar.this , baseEjemplo.class);
+                Intent i = new Intent(Recuperar.this , CrearEvento.class);
                 startActivity(i);
                 finish();
             }
