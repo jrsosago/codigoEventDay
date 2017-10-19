@@ -20,6 +20,7 @@
         <activity android:name=".Recuperar" />
         <activity android:name=".CrearEvento" />
         <activity android:name=".localizacion"></activity>
+        <activity android:name=".lugar"/>
     </application>
 
 </manifest>

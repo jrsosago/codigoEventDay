@@ -22,7 +22,7 @@ public class Recuperar extends AppCompatActivity {
         enviarCorreo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Recuperar.this , CrearEvento.class);
+                Intent i = new Intent(Recuperar.this , lugar.class);
                 startActivity(i);
                 finish();
             }
