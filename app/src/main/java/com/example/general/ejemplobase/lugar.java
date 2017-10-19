@@ -17,6 +17,7 @@ public class lugar extends AppCompatActivity {
     Button c1;
     Button c2;
     Button c3;
+    Button perfilactividadlugar;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -28,6 +29,7 @@ public class lugar extends AppCompatActivity {
         c1=(Button)findViewById(R.id.BotonConciertoUno);
         c2=(Button)findViewById(R.id.botonConciertoDos);
         c3=(Button)findViewById(R.id.BotonConciertoTres);
+        perfilactividadlugar=(Button) findViewById(R.id.button2);
 
         agregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +68,14 @@ public class lugar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(lugar.this, MostrarEvento.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        perfilactividadlugar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(lugar.this,perfil.class);
                 startActivity(i);
                 finish();
             }

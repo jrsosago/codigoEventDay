@@ -24,7 +24,9 @@ public class localizacion extends AppCompatActivity {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(localizacion.this,"Funcionalidad pendiente",Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(localizacion.this,baseEjemplo.class);
+                startActivity(i);
+                finish();
 
             }
         });
