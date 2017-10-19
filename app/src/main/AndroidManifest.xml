@@ -22,6 +22,7 @@
         <activity android:name=".localizacion"/>
         <activity android:name=".lugar"/>
         <activity android:name=".MostrarEvento"/>
+        <activity android:name=".perfil"/>
 
     </application>
 
