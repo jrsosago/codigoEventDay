@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -11,7 +12,9 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="25dp">
 
         <ImageView
             android:id="@+id/txtNuevoEvento"
@@ -132,17 +135,17 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txthorainicio"
+                android:id="@+id/txtFecha"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Hora Inicio"
+                android:text="Fecha"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
-                android:id="@+id/editTexthoraInicio"
+                android:id="@+id/editTextFecha"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -158,17 +161,17 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txtHoraFin"
+                android:id="@+id/txtHora"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Hora Fin"
+                android:text="Hora"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
-                android:id="@+id/editTextHoraFin"
+                android:id="@+id/editTextHora"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
