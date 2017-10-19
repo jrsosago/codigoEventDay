@@ -1,9 +1,11 @@
 package com.example.general.ejemplobase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class localizacion extends AppCompatActivity {
 
@@ -22,6 +24,7 @@ public class localizacion extends AppCompatActivity {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(localizacion.this,"Funcionalidad pendiente",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -29,7 +32,9 @@ public class localizacion extends AppCompatActivity {
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(localizacion.this, CrearEvento.class);
+                startActivity(i);
+                finish();
             }
         });
     }
