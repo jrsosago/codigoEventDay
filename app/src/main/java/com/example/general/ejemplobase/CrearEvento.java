@@ -30,7 +30,7 @@ public class CrearEvento extends AppCompatActivity {
         crearEvento.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i=new Intent(CrearEvento.this,Registro.class);
+                Intent i=new Intent(CrearEvento.this,MostrarEvento.class);
                 startActivity(i);
                 finish();
 
