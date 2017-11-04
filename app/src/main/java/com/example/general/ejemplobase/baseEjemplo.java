@@ -9,16 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.general.ejemplobase.Objetos.FirebaseReference;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 import com.google.firebase.auth.FirebaseUser;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -46,7 +43,7 @@ public class baseEjemplo extends AppCompatActivity {
         btnlogin = (Button) findViewById(R.id.botonLogin);
         registrarse = (TextView) findViewById(R.id.textRegistro);
         recuperar = (TextView) findViewById(R.id.textRecuperar);
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth.getInstance();
 
 
       mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -124,10 +121,10 @@ public class baseEjemplo extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (mAuthListener != null){
+        if (mAuthListener != null) {
             FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
 
         }
-
+    }
 
 }
