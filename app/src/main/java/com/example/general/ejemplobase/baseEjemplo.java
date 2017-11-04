@@ -9,17 +9,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.general.ejemplobase.Objetos.FirebaseReference;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class baseEjemplo extends AppCompatActivity {
+
 
     EditText cCorreo;
     EditText cContraseña;
@@ -28,17 +32,22 @@ public class baseEjemplo extends AppCompatActivity {
     TextView recuperar;
     FirebaseAuth.AuthStateListener mAuthListener;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_ejemplo);
 
+
         cCorreo = (EditText) findViewById(R.id.campoCorreo);
         cContraseña = (EditText) findViewById(R.id.campoContraseña);
+
         btnlogin = (Button) findViewById(R.id.botonLogin);
         registrarse = (TextView) findViewById(R.id.textRegistro);
         recuperar = (TextView) findViewById(R.id.textRecuperar);
+        mAuth = FirebaseAuth.getInstance();
+
 
       mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -56,7 +65,15 @@ public class baseEjemplo extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 loguear();
+
+            
+                Intent i = new Intent(baseEjemplo.this , localizacion.class);
+                startActivity(i);
+                finish();
+
+
             }
         });
 
@@ -81,6 +98,7 @@ public class baseEjemplo extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myref = database.getReference(FirebaseReference.EVENTDAY_REFERENCES);
     }
+
 
     private void loguear (){
         String correo = cCorreo.getText().toString().trim();
@@ -110,5 +128,6 @@ public class baseEjemplo extends AppCompatActivity {
             FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
 
         }
-    }
+
+
 }
