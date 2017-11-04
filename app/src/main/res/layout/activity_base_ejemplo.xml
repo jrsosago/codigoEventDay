@@ -80,7 +80,9 @@
                             android:textStyle="bold" />
 
                         <EditText
-                            android:id="@+id/CampoCorreo"
+
+                            android:id="@+id/campoCorreo"
+
                             android:layout_width="192dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.72"
@@ -107,7 +109,9 @@
                             android:textStyle="bold" />
 
                         <EditText
-                            android:id="@+id/CampoContraseña"
+
+                            android:id="@+id/campoContraseña"
+
                             android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.16"
