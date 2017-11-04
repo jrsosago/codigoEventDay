@@ -57,6 +57,7 @@
                             android:layout_weight="1"
                             android:text="EventDay"
                             android:textAlignment="center"
+                            android:textColorLink="@android:color/black"
                             android:textSize="50sp"
                             android:textStyle="normal|bold" />
                     </LinearLayout>
@@ -74,6 +75,7 @@
                             android:layout_weight="1"
                             android:text="Correo:"
                             android:textAlignment="center"
+                            android:textColorLink="@android:color/black"
                             android:textSize="25sp"
                             android:textStyle="bold" />
 
@@ -83,7 +85,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.72"
                             android:ems="10"
-                            android:inputType="textEmailAddress" />
+                            android:inputType="textEmailAddress"
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -99,6 +102,7 @@
                             android:layout_weight="1"
                             android:text="Contraseña:"
                             android:textAlignment="center"
+                            android:textColorLink="@android:color/black"
                             android:textSize="25sp"
                             android:textStyle="bold" />
 
@@ -108,7 +112,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1.16"
                             android:ems="10"
-                            android:inputType="textPassword" />
+                            android:inputType="textPassword"
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -153,6 +158,8 @@
                             android:layout_weight="1"
                             android:text="Registrarse"
                             android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textColorLink="@android:color/black"
                             android:textSize="18sp" />
 
                         <TextView
@@ -162,6 +169,8 @@
                             android:layout_weight="1"
                             android:text="Olvide mi contraseña"
                             android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textColorLink="@android:color/black"
                             android:textSize="18sp" />
                     </LinearLayout>
 

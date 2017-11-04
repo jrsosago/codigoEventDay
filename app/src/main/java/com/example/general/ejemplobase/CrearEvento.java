@@ -16,6 +16,7 @@ public class CrearEvento extends AppCompatActivity {
 
     Button crearEvento;
     Button cancelarCreacionEvento;
+    Button perfilCrearEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +25,14 @@ public class CrearEvento extends AppCompatActivity {
 
         crearEvento= (Button) findViewById(R.id.botonCrearEvento);
         cancelarCreacionEvento= (Button) findViewById(R.id.botonCancelarEvento);
+        perfilCrearEvento=(Button) findViewById(R.id.BotonPerfilCrearEvento);
 
         crearEvento.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //Intent i=new Intent(CrearEvento.this,Registro.class);
-                //startActivity(i);
-                //finish();
-                Toast.makeText(CrearEvento.this,"Funcionalidad pendiente",Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(CrearEvento.this,MostrarEvento.class);
+                startActivity(i);
+                finish();
 
             }
         });
@@ -39,11 +40,20 @@ public class CrearEvento extends AppCompatActivity {
         cancelarCreacionEvento.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(CrearEvento.this, localizacion.class);
+                Intent i=new Intent(CrearEvento.this, lugar.class);
                 startActivity(i);
                 finish();
             }
 
+        });
+        
+        perfilCrearEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(CrearEvento.this,perfil.class);
+                startActivity(i);
+                finish();
+            }
         });
     }
 

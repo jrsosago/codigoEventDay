@@ -19,7 +19,11 @@
         <activity android:name=".Registro" />
         <activity android:name=".Recuperar" />
         <activity android:name=".CrearEvento" />
-        <activity android:name=".localizacion"></activity>
+        <activity android:name=".localizacion"/>
+        <activity android:name=".lugar"/>
+        <activity android:name=".MostrarEvento"/>
+        <activity android:name=".perfil"/>
+
     </application>
 
 </manifest>

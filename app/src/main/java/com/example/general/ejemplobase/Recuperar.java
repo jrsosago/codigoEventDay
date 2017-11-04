@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+//hola
 public class Recuperar extends AppCompatActivity {
     Button enviarCorreo;
     Button cancelarEnvio;
