@@ -1,7 +1,6 @@
 package com.example.general.ejemplobase;
 
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.general.ejemplobase.Objetos.FirebaseReference;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,7 +28,7 @@ public class CrearEvento extends AppCompatActivity {
     Calendar myCalendar=Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date;
     TimePickerDialog.OnTimeSetListener hour;
-    private ProgressDialog progressDialog;
+
 
 
     private String info="";
@@ -50,11 +48,9 @@ public class CrearEvento extends AppCompatActivity {
     private EditText txtDescripcion;
     private EditText txtDirreccion;
 
-   // private DatabaseReference mDatabase;
-   // private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase database;
 
-    private String FirebaseURL="https://ejemplobase-d29b0.firebaseio.com/";
-    private String firebaseChild="Eventos";
     FirebaseApp firebase;
     Button crearEvento;
     Button cancelarCreacionEvento;
@@ -68,12 +64,6 @@ public class CrearEvento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_evento);
 
-     //   FirebaseDatabase database=FirebaseDatabase.getInstance();
-       // mDatabase=database.getReference("Eventos");
-        //mAuth=FirebaseAuth.getInstance();
-
-        //Firebase.setAndroidContext(this);
-        //firebase = new Firebase(FIREBASE_URL).child(FIREBASE_CHILD);
         txtNombre=(EditText) findViewById(R.id.editTextNombreEvento);
         txtCategoria=(EditText) findViewById(R.id.editTextCategoria);
         txtPrecio=(EditText) findViewById(R.id.editTextPrecio);
@@ -119,6 +109,7 @@ public class CrearEvento extends AppCompatActivity {
             }
         });
         */
+        database=FirebaseDatabase.getInstance();
 
         crearEvento.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -131,17 +122,19 @@ public class CrearEvento extends AppCompatActivity {
                 sDescripcion=txtDescripcion.getText().toString().trim();
                 sDireccion=txtDirreccion.getText().toString().trim();
 
-                progressDialog.setMessage("Creando evento, por favor espere");
-                progressDialog.show();
 
                 if(checkFields(sNombre, sCategoria, sPrecio, sFecha, sHora, sDescripcion, sDireccion)){
                     Toast.makeText(getApplicationContext(), "Evento creado con éxito",  Toast.LENGTH_SHORT).show();
-                 //   String key=mDatabase.child(mDatabase.push().getKey()).getKey();
-                //    mDatabase.child(key).setValue(new Eventos(key,sNombre,sCategoria,sPrecio,sFecha,sHora,sDescripcion,sDireccion));
+                    mDatabase=database.getReference(FirebaseReference.EVENTOS_REFERENCIA);
+                    Evento e=new Evento(sNombre,sCategoria,sPrecio,sFecha,sHora,sDescripcion,sDireccion,"Yo");
+                    mDatabase.push().setValue(e);
+
+                    Intent i=new Intent(CrearEvento.this,MostrarEvento.class);
+                    startActivity(i);
+                    finish();
+                }else{
+                    Toast.makeText(getApplicationContext(),info ,Toast.LENGTH_SHORT).show();
                 }
-                Intent i=new Intent(CrearEvento.this,MostrarEvento.class);
-                startActivity(i);
-                finish();
 
             }
         });
@@ -173,7 +166,7 @@ public class CrearEvento extends AppCompatActivity {
         }else{
             info="Error en la conexión";
         }
-        return false;
+        return true;
     }
 
     private  void updateTxtDate(){
