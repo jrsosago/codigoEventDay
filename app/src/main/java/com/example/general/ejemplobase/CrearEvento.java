@@ -8,12 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.general.ejemplobase.Objetos.FirebaseReference;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -50,11 +53,17 @@ public class CrearEvento extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseDatabase database;
+    private StorageReference mStorage;
 
-    FirebaseApp firebase;
-    Button crearEvento;
-    Button cancelarCreacionEvento;
-    Button perfilCrearEvento;
+
+    private Button crearEvento;
+    private Button cancelarCreacionEvento;
+    private Button perfilCrearEvento;
+    private ImageButton seleccionarFoto;
+
+    private static final int PETICION_CAPTURA_IMAGEN = 1;
+    private static final int SOLICITUD_CAMERA = 2;
+    private static final int GALLERY_INTENT=3;
 
     public CrearEvento(){
 
@@ -155,6 +164,19 @@ public class CrearEvento extends AppCompatActivity {
                 Intent i=new Intent(CrearEvento.this,perfil.class);
                 startActivity(i);
                 finish();
+            }
+        });
+
+        //Poner una foto guardada en el celular
+        mStorage= FirebaseStorage.getInstance().getReference();
+        seleccionarFoto=(ImageButton)findViewById(R.id.BotonCamaraEvento);
+
+        seleccionarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
+                startActivityForResult(i, GALLERY_INTENT);
             }
         });
     }
