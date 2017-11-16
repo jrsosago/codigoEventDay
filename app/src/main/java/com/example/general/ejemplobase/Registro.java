@@ -32,6 +32,8 @@ public class Registro extends AppCompatActivity {
     Pattern pat;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
+
     FirebaseAuth mAuth;
 
     @Override

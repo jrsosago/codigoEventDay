@@ -29,6 +29,8 @@ public class baseEjemplo extends AppCompatActivity {
     TextView recuperar;
     FirebaseAuth.AuthStateListener mAuthListener;
 
+    //Se utiliza en otras clases
+    public static String idUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class baseEjemplo extends AppCompatActivity {
 
         cCorreo = (EditText) findViewById(R.id.campoCorreo);
         cContraseña = (EditText) findViewById(R.id.campoContraseña);
+
+        idUsuario=cCorreo.toString().trim();
 
         btnlogin = (Button) findViewById(R.id.botonLogin);
         registrarse = (TextView) findViewById(R.id.textRegistro);
