@@ -3,6 +3,7 @@ package com.example.general.ejemplobase;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,16 +12,22 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.general.ejemplobase.baseEjemplo.*;
 import com.example.general.ejemplobase.Objetos.FirebaseReference;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import static com.example.general.ejemplobase.Objetos.FirebaseReference.STORAGE_EVENTOS;
+import static com.example.general.ejemplobase.baseEjemplo.idUsuario;
 
 /**
  * Created by sosa on 16/10/2017.
@@ -84,40 +91,7 @@ public class CrearEvento extends AppCompatActivity {
         cancelarCreacionEvento= (Button) findViewById(R.id.botonCancelarEvento);
         perfilCrearEvento=(Button) findViewById(R.id.BotonPerfilCrearEvento);
 
-        /*
-        date=new DatePickerDialog.OnDateSetListener(){
-            @Override
-            public void OnDateSet(int year, int month, int day){
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, month);
-                myCalendar.set(Calendar.DAY_OF_MONTH, day);
-                  updateTxtDate();
-            }
-        };
 
-        hour= new TimePickerDialog.OnTimeSetListener(){
-                @Override
-                public void onTimeSet(int hour, int minutes){
-                    myCalendar.set(Calendar.HOUR, hour);
-                   myCalendar.set(Calendar.MINUTE, minutes);
-                  updateTxtHour();
-                }
-            };
-
-        txtFecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new DatePickerDialog(getActivity(),date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        txtHora.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new TimePickerDialog(getActivity(),hour,myCalendar.get(Calendar.HOUR),myCalendar.get(Calendar.MINUTE),true).show();
-            }
-        });
-        */
         database=FirebaseDatabase.getInstance();
 
         crearEvento.setOnClickListener(new View.OnClickListener(){
@@ -135,7 +109,7 @@ public class CrearEvento extends AppCompatActivity {
                 if(checkFields(sNombre, sCategoria, sPrecio, sFecha, sHora, sDescripcion, sDireccion)){
                     Toast.makeText(getApplicationContext(), "Evento creado con éxito",  Toast.LENGTH_SHORT).show();
                     mDatabase=database.getReference(FirebaseReference.EVENTOS_REFERENCIA);
-                    Evento e=new Evento(sNombre,sCategoria,sPrecio,sFecha,sHora,sDescripcion,sDireccion,"Yo");
+                    Evento e=new Evento(sNombre,sCategoria,sPrecio,sFecha,sHora,sDescripcion,sDireccion,idUsuario);
                     mDatabase.push().setValue(e);
 
                     Intent i=new Intent(CrearEvento.this,MostrarEvento.class);
@@ -157,7 +131,7 @@ public class CrearEvento extends AppCompatActivity {
             }
 
         });
-        
+
         perfilCrearEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,6 +163,26 @@ public class CrearEvento extends AppCompatActivity {
             info="Error en la conexión";
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode,data);
+
+            if(requestCode==GALLERY_INTENT && resultCode==RESULT_OK){
+                Uri uri= data.getData();
+
+                StorageReference filepath= mStorage.child(STORAGE_EVENTOS).child(uri.getLastPathSegment());
+
+                filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                        Toast.makeText(getApplicationContext(),"Foto Guardada con éxito",Toast.LENGTH_LONG).show();
+
+                    }
+                });
+            }
     }
 
     private  void updateTxtDate(){
