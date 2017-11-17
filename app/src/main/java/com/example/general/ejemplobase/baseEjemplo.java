@@ -40,9 +40,9 @@ public class baseEjemplo extends AppCompatActivity {
 
 
         cCorreo = (EditText) findViewById(R.id.campoCorreo);
+        idUsuario = cCorreo.getText().toString();
         cContraseña = (EditText) findViewById(R.id.campoContraseña);
 
-        idUsuario=cCorreo.toString().trim();
 
         btnlogin = (Button) findViewById(R.id.botonLogin);
         registrarse = (TextView) findViewById(R.id.textRegistro);

@@ -68,6 +68,8 @@ public class CrearEvento extends AppCompatActivity {
     private Button perfilCrearEvento;
     private ImageButton seleccionarFoto;
 
+    private String idfoto="NoTiene";
+
     private static final int PETICION_CAPTURA_IMAGEN = 1;
     private static final int SOLICITUD_CAMERA = 2;
     private static final int GALLERY_INTENT=3;
@@ -91,6 +93,18 @@ public class CrearEvento extends AppCompatActivity {
         cancelarCreacionEvento= (Button) findViewById(R.id.botonCancelarEvento);
         perfilCrearEvento=(Button) findViewById(R.id.BotonPerfilCrearEvento);
 
+        //Poner una foto guardada en el celular
+        mStorage= FirebaseStorage.getInstance().getReference();
+        seleccionarFoto=(ImageButton)findViewById(R.id.BotonCamaraEvento);
+
+        seleccionarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
+                startActivityForResult(i, GALLERY_INTENT);
+            }
+        });
 
         database=FirebaseDatabase.getInstance();
 
@@ -105,11 +119,10 @@ public class CrearEvento extends AppCompatActivity {
                 sDescripcion=txtDescripcion.getText().toString().trim();
                 sDireccion=txtDirreccion.getText().toString().trim();
 
-
                 if(checkFields(sNombre, sCategoria, sPrecio, sFecha, sHora, sDescripcion, sDireccion)){
                     Toast.makeText(getApplicationContext(), "Evento creado con éxito",  Toast.LENGTH_SHORT).show();
                     mDatabase=database.getReference(FirebaseReference.EVENTOS_REFERENCIA);
-                    Evento e=new Evento(sNombre,sCategoria,sPrecio,sFecha,sHora,sDescripcion,sDireccion,idUsuario);
+                    Evento e=new Evento(sNombre,sCategoria,sPrecio,sFecha,sHora,sDescripcion,sDireccion,idUsuario, idfoto);
                     mDatabase.push().setValue(e);
 
                     Intent i=new Intent(CrearEvento.this,MostrarEvento.class);
@@ -141,18 +154,6 @@ public class CrearEvento extends AppCompatActivity {
             }
         });
 
-        //Poner una foto guardada en el celular
-        mStorage= FirebaseStorage.getInstance().getReference();
-        seleccionarFoto=(ImageButton)findViewById(R.id.BotonCamaraEvento);
-
-        seleccionarFoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(Intent.ACTION_PICK);
-                i.setType("image/*");
-                startActivityForResult(i, GALLERY_INTENT);
-            }
-        });
     }
 
     public boolean checkFields(String nombre, String categoria, String precio, String fecha, String hora, String descripcion, String direccion ){
@@ -172,7 +173,9 @@ public class CrearEvento extends AppCompatActivity {
             if(requestCode==GALLERY_INTENT && resultCode==RESULT_OK){
                 Uri uri= data.getData();
 
-                StorageReference filepath= mStorage.child(STORAGE_EVENTOS).child(uri.getLastPathSegment());
+                idfoto=uri.getLastPathSegment();
+
+                StorageReference filepath= mStorage.child(STORAGE_EVENTOS).child(idfoto);
 
                 filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
