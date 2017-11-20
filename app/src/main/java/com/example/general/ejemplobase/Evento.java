@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  */
 
 public class Evento {
-    private String Key;
+   // private String Key;
     private String Nombre;
     private String Categoria;
     private String Precio;
@@ -17,13 +17,14 @@ public class Evento {
     private String Descripcion;
     private String Direccion;
     private String Creador;
+    private String Foto;
 
 
     public Evento () {
 
     }
-    public Evento (String key, String nombre, String categoria, String precio, String fecha, String hora, String descripcion, String ubicacion, String creador) {
-        this.Key = key;
+    public Evento ( String nombre, String categoria, String precio, String fecha, String hora, String descripcion, String ubicacion, String creador, String foto) {
+        //this.Key = key;
         this.Nombre = nombre;
         this.Categoria =categoria ;
         this.Precio = precio;
@@ -32,15 +33,17 @@ public class Evento {
         this.Descripcion = descripcion;
         this.Direccion = ubicacion;
         this.Creador=creador;
+        this.Foto=foto;
     }
 
-    public String getKey() {
+  /*  public String getKey() {
         return Key;
     }
 
     public void setKey(String key) {
         Key = key;
-    }
+    }/
+    */
 
     public String getNombre() {
         return Nombre;
@@ -102,6 +105,12 @@ public class Evento {
 
     public void setCreador(String creador){
         Creador=creador;
+    }
+
+    public String getFoto(){return Foto;}
+
+    public void setFoto(String foto){
+        Foto=foto;
     }
 
 

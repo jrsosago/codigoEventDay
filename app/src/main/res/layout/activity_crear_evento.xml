@@ -27,7 +27,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="8dp"
@@ -47,7 +46,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
             android:text="Nuevo Evento"
             android:textAllCaps="true"
@@ -60,14 +59,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="3"
         android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -81,23 +80,23 @@
                 android:gravity="center"
                 android:text="Nombre"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextNombreEvento"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -109,22 +108,22 @@
                 android:gravity="center"
                 android:text="Categoria"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextCategoria"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -136,22 +135,22 @@
                 android:gravity="center"
                 android:text="Precio"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextPrecio"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -163,22 +162,22 @@
                 android:gravity="center"
                 android:text="Fecha"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextFecha"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -190,22 +189,22 @@
                 android:gravity="center"
                 android:text="Hora"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextHora"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -217,22 +216,22 @@
                 android:gravity="center"
                 android:text="Descripción"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextDescripcionEvento"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -244,17 +243,17 @@
                 android:gravity="center"
                 android:text="Dirección"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/editTextDireccion"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -265,21 +264,24 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView5"
+        <ImageButton
+            android:id="@+id/BotonCamaraEvento"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:layout_weight="1"
+            android:background="@drawable/borde_redondo_figura"
             app:srcCompat="@drawable/camara" />
 
-        <ImageView
-            android:id="@+id/imageView6"
+        <ImageButton
+            android:id="@+id/BotonVideoEvento"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:layout_weight="1"
+            android:background="@drawable/borde_redondo_figura"
             app:srcCompat="@drawable/videocamara" />
+
     </LinearLayout>
 
     <LinearLayout

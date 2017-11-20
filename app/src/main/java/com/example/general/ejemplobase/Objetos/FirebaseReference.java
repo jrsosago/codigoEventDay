@@ -5,5 +5,7 @@ package com.example.general.ejemplobase.Objetos;
  */
 
 public class FirebaseReference {
-    final public static String EVENTDAY_REFERENCES = "eventday";
+    final public static String EVENTOS_REFERENCIA="Eventos";
+    final public static String USUARIOS_REFERENCIA="Usuarios";
+    final public static String STORAGE_EVENTOS="FotosEventos";
 }

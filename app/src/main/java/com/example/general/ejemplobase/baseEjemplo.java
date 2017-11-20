@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.general.ejemplobase.Objetos.FirebaseReference;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class baseEjemplo extends AppCompatActivity {
 
+    public static String idUsuario;
 
     EditText cCorreo;
     EditText cContraseña;
@@ -29,6 +32,9 @@ public class baseEjemplo extends AppCompatActivity {
     TextView recuperar;
     FirebaseAuth.AuthStateListener mAuthListener;
 
+    DatabaseReference usuariosReferencia;
+    FirebaseDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +42,12 @@ public class baseEjemplo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_ejemplo);
 
+        database = FirebaseDatabase.getInstance();
+        usuariosReferencia = database.getReference(FirebaseReference.USUARIOS_REFERENCIA);
+
 
         cCorreo = (EditText) findViewById(R.id.campoCorreo);
+        idUsuario=cCorreo.getText().toString();
         cContraseña = (EditText) findViewById(R.id.campoContraseña);
 
         btnlogin = (Button) findViewById(R.id.botonLogin);
@@ -46,7 +56,7 @@ public class baseEjemplo extends AppCompatActivity {
         FirebaseAuth.getInstance();
 
 
-      mAuthListener = new FirebaseAuth.AuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -65,10 +75,6 @@ public class baseEjemplo extends AppCompatActivity {
 
                 loguear();
 
-            
-                Intent i = new Intent(baseEjemplo.this , localizacion.class);
-                startActivity(i);
-                finish();
 
 
             }
@@ -92,24 +98,28 @@ public class baseEjemplo extends AppCompatActivity {
             }
         });
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myref = database.getReference(FirebaseReference.EVENTDAY_REFERENCES);
     }
 
 
     private void loguear (){
         String correo = cCorreo.getText().toString().trim();
         String contraseña = cContraseña.getText().toString().trim();
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(correo,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Intent i = new Intent(baseEjemplo.this , localizacion.class);
-                    startActivity(i);
-                    finish();
+        if (!TextUtils.isEmpty(correo) && !TextUtils.isEmpty(contraseña)){
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(correo,contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()){
+                        Intent i = new Intent(baseEjemplo.this , localizacion.class);
+                        startActivity(i);
+                        finish();
+                    }
                 }
-            }
-        });
+            });
+        }
+        else {
+            Toast.makeText(baseEjemplo.this,"Ingrese su usuario y contraseña",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
@@ -128,3 +138,4 @@ public class baseEjemplo extends AppCompatActivity {
     }
 
 }
+
