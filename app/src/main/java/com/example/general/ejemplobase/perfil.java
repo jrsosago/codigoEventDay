@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by sosa on 19/10/2017.
@@ -13,6 +15,11 @@ import android.widget.Button;
 public class perfil extends AppCompatActivity {
 
     Button cerrarSesion;
+    TextView nombreP;
+    ImageView fotoP;
+    public static String nombre;
+    public static String apellido;
+
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -20,6 +27,10 @@ public class perfil extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
 
         cerrarSesion=(Button)findViewById(R.id.buttonCerrarSesion);
+        nombreP = (TextView) findViewById(R.id.nombrePerfil);
+        fotoP = (ImageView) findViewById(R.id.fotoDePerfil);
+
+        nombreP.setText(nombre+" "+apellido);
 
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,4 +42,5 @@ public class perfil extends AppCompatActivity {
         });
 
     }
+
 }

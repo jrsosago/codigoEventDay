@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EjemploBase.iml" filepath="$PROJECT_DIR$/EjemploBase.iml" />
+      <module fileurl="file://C:\Users\CPE\Documents\GitHub\codigoEventDay\EjemploBase.iml" filepath="C:\Users\CPE\Documents\GitHub\codigoEventDay\EjemploBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/codigoEventDay.iml" filepath="$PROJECT_DIR$/codigoEventDay.iml" />
     </modules>
