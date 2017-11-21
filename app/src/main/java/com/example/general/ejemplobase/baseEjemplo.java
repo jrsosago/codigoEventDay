@@ -1,8 +1,11 @@
 package com.example.general.ejemplobase;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -41,6 +44,8 @@ public class baseEjemplo extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_ejemplo);
+
+
 
         database = FirebaseDatabase.getInstance();
         usuariosReferencia = database.getReference(FirebaseReference.USUARIOS_REFERENCIA);
