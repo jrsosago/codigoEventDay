@@ -1,8 +1,5 @@
 package com.example.general.ejemplobase;
 
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
 /**
  * Created by sosa on 17/10/2017.
  */

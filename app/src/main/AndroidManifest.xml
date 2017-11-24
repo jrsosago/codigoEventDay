@@ -20,7 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".baseEjemplo"
+        <activity android:name="com.example.general.ejemplobase.baseEjemplo"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,21 +28,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registro"
+        <activity android:name="com.example.general.ejemplobase.Registro"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Recuperar"
+        <activity android:name="com.example.general.ejemplobase.Recuperar"
             android:screenOrientation="portrait"/>
-        <activity android:name=".CrearEvento"
+        <activity android:name="com.example.general.ejemplobase.CrearEvento"
             android:screenOrientation="portrait"/>
-        <activity android:name=".localizacion"
+        <activity android:name="com.example.general.ejemplobase.localizacion"
             android:screenOrientation="portrait"/>
-        <activity android:name=".lugar"
+        <activity android:name="com.example.general.ejemplobase.lugar"
             android:screenOrientation="portrait"/>
-        <activity android:name=".MostrarEvento"
+        <activity android:name="com.example.general.ejemplobase.MostrarEvento"
             android:screenOrientation="portrait"/>
-        <activity android:name=".perfil"
+        <activity android:name="com.example.general.ejemplobase.perfil"
             android:screenOrientation="portrait"/>
 
     </application>
+
 
 </manifest>

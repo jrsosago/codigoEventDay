@@ -21,12 +21,11 @@
             android:orientation="horizontal">
 
             <Switch
-                android:id="@+id/switch_ubicacion"
+                android:id="@+id/switch1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Activar la localización" />
-
+                android:text="Activar tu localización" />
         </LinearLayout>
 
         <LinearLayout

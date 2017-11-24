@@ -77,7 +77,6 @@ public class lugar extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i=new Intent(lugar.this,perfil.class);
                 startActivity(i);
-                finish();
             }
         });
     }

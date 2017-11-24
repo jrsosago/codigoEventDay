@@ -47,6 +47,7 @@ public class baseEjemplo extends AppCompatActivity {
 
     DatabaseReference usuariosReferencia;
     FirebaseDatabase database;
+    public static FirebaseUser currentUser;
 
 
     @Override
@@ -100,13 +101,22 @@ public class baseEjemplo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signIn();
+               /* try {
+                    Thread.sleep(10000);
+                    Intent i = new Intent(baseEjemplo.this , localizacion.class);
+                    startActivity(i);
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }*/
+
+
             }
         });
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 loguear();
 
             }
@@ -171,7 +181,13 @@ public class baseEjemplo extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null){
+            Intent i = new Intent(baseEjemplo.this , localizacion.class);
+            startActivity(i);
+            finish();
+        }
+
     }
 
     @Override
@@ -179,6 +195,7 @@ public class baseEjemplo extends AppCompatActivity {
         super.onStop();
         if (mAuthListener != null) {
             FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
+
 
         }
     }

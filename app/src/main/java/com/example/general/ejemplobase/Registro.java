@@ -94,8 +94,6 @@ public class Registro extends AppCompatActivity {
         String co1 = Ecorreo.getText().toString().trim();
         String cont1 = Econtraseña.getText().toString().trim();
         final String rep1 = Erepetir.getText().toString().trim();
-        perfil.nombre = Enombre.getText().toString().trim();
-        perfil.apellido = Eapellido.getText().toString().trim();
 
         if (!TextUtils.isEmpty(nom1) && !TextUtils.isEmpty(ape1) && !TextUtils.isEmpty(co1) && !TextUtils.isEmpty(cont1) && !TextUtils.isEmpty(rep1)) {
             if (cont1.length() < 6) {
@@ -109,7 +107,6 @@ public class Registro extends AppCompatActivity {
             }
             else {
                 Usuarios usuario1 = new Usuarios(nom1,ape1,co1,cont1);
-                //perfil.nombreP.setText(nom1+" "+ape1);
                 usuariosReferencia.child("User"+nom1.substring(0,3)+ape1.substring(0,5)).setValue(usuario1);
                 mAuth.createUserWithEmailAndPassword(co1, cont1)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

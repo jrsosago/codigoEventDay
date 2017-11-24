@@ -12,10 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.general.ejemplobase.baseEjemplo.*;
 import com.example.general.ejemplobase.Objetos.FirebaseReference;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -150,7 +148,6 @@ public class CrearEvento extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i=new Intent(CrearEvento.this,perfil.class);
                 startActivity(i);
-                finish();
             }
         });
 

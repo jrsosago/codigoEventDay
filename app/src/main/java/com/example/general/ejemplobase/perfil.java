@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 /**
  * Created by sosa on 19/10/2017.
  */
@@ -24,7 +26,7 @@ public class perfil extends AppCompatActivity {
     TextView nombreP;
     ImageView fotoP;
     public static String nombre;
-    public static String apellido;
+    public static String apellido = " ";
     private static final int GALLERY_INTENT=3;
 
 
@@ -46,14 +48,13 @@ public class perfil extends AppCompatActivity {
 
         cerrarSesion=(Button)findViewById(R.id.buttonCerrarSesion);
         nombreP = (TextView) findViewById(R.id.nombrePerfil);
-
         nombre = "Usuario";
-        apellido = " ";
         nombreP.setText(nombre+" "+apellido);
 
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
                 Intent i=new Intent(perfil.this, baseEjemplo.class);
                 startActivity(i);
                 finish();

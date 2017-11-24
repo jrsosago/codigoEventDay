@@ -26,7 +26,6 @@ public class MostrarEvento extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i=new Intent(MostrarEvento.this, perfil.class);
                 startActivity(i);
-                finish();
             }
         });
     }
